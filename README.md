@@ -1,6 +1,75 @@
 # Chae W.Sensor Management Server
 
-채경훈 대표님 웨어러블 센서 개발 프로젝트
+채경훈 대표님 웨어러블 센서 통신 서버 개발 프로젝트
+
+# 1. System Development Platform
+
+- Python v.??
+- Django v.??
+- Django restframework v.??
+- mariadb v.??
+
+
+# 2. System Sequece Diagram
+
+## 1. 커맨드 요청 시퀀스 다이어그램 (Command Request Squence Diagram)
+```mermaid
+sequenceDiagram
+  autonumber
+  사용자(User)->>+서버(Master): 타겟 센서에 대한 커맨드 실행 요청<BR>Command execution request for target sensor
+  서버(Master)->>+저장소(DB): 커맨드 실행 요청 데이터 기록<BR>Command execution request data record
+  저장소(DB)-->>-서버(Master): 데이터 기록 결과<BR>Data record result
+  서버(Master)->>+저장소(DB): 커맨드 실행 요청 로그 기록<BR>Command execution request log record
+  저장소(DB)-->>-서버(Master): 로그 기록 결과<BR>Log record result
+  서버(Master)-->>-사용자(User): 커맨드 실행 요청 항목 처리 결과<BR>Command execution request item process result
+```
+
+## 2. 센서 데이터 기록 및 커맨드 실행 시퀀스 다이어그램 (Sensor data store and Command execute sequence diagram)
+```mermaid
+sequenceDiagram
+  autonumber
+  loop Sensing
+    디바이스(Slave)->>디바이스(Slave): 센서 데이터 수집<BR>Collect sensing data
+    Note right of 디바이스(Slave): 센서 데이터 수집 주기와 센서 데이터 송신 주기는 다름<BR>Sensing period is different with sensor data push to server period
+  end
+  loop Sensor Data Push to the Server
+    디바이스(Slave)->>+서버(Master): 센서 데이터 송신(Push)<BR>Sensor data send(Push)
+    서버(Master)->>+저장소(DB): 센서 데이터 기록<BR>Sensor data record
+    저장소(DB)-->>-서버(Master): 센서 데이터 기록 결과<BR>Sensor data record result
+    서버(Master)-->>-디바이스(Slave): 센서 데이터 수신 결과<BR>Sensor data receive result response
+    서버(Master)->>서버(Master): 커맨드 실행 요청 큐 체크<BR>Command execution request queue check
+    loop If command queue item for target sensor exists
+      서버(Master)->>+디바이스(Slave): 커맨드 실행 요청<BR>Command execution request
+      디바이스(Slave)->>디바이스(Slave): 커맨드 실행<BR>Command execution
+      디바이스(Slave)-->>-서버(Master): 커맨드 실행 결과<BR>Command execution result response
+      서버(Master)->>+저장소(DB): 큐 아이템의 커맨드 실행 결과 업데이트 기록<BR>Command execution result update of queue item
+      저장소(DB)-->>-서버(Master): 업데이트 기록 결과<BR>Update record result
+      서버(Master)->>+저장소(DB): 커맨드 실행 결과 로그 기록<BR>Command execution result log record
+      저장소(DB)-->>-서버(Master): 로그 기록 결과<BR>Log recor result
+    end
+  end
+```
+
+## 3. 센서 데이터 조회 시퀀스 다이어그램 (Sensor data query sequence diagram)
+```mermaid
+sequenceDiagram
+  autonumber
+  사용자(User)->>+서버(Master): 센서 데이터 조회 요청<BR>Sensor data query request
+  서버(Master)->>+저장소(DB): 센서 데이터 조회<BR>Sensor data query
+  저장소(DB)-->>-서버(Master): 센서 데이터 조회 결과<BR>Sensor data query result
+  서버(Master)-->>-사용자(User): 센서 데이터 조회 목록<BR>Sensor data query result list response
+```
+
+## 4. 커맨드 실행 요청 목록 및 상태 조회 시퀀스 다이어그램 (Command execution log query sequence diagram)
+```mermaid
+sequenceDiagram
+  autonumber
+  사용자(User)->>+서버(Master): 커맨드 실행 요청 목록 및 상태 조회 요청<BR>Command execution request list and status query request
+  서버(Master)->>+저장소(DB): 커맨드 실행 요청 목록 및 상태 데이터 조회<BR>Command execution request list and status data query
+  저장소(DB)-->>-서버(Master): 커맨드 실행 요청 목록 및 상태 조회 결과<BR>Command execution request list and status data query result
+  서버(Master)-->>-사용자(User): 커맨드 실행 요청 목록 및 상태 조회 목록<BR>Command execution request list and status data query list response
+```
+
 
 ## Getting started
 
