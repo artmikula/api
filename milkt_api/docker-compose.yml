@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    # volumes:
+    # - ~/apps/sensor_db:/var/lib/mysql
+    # - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_DATABASE=sensor_db
+      - MYSQL_ROOT_PASSWORD=pswd
+      - TZ="Asia/Seoul"
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports: = "8000:8000"
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_DATABASE=sensor_db
+      - MYSQL_ROOT_PASSWORD=pswd
+      - TZ="Asia/Seoul"
+    depends_on:
+      - db

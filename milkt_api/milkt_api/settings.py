@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'milkt_api.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'sensor_db_3',
+    'NAME': 'sensor_db',
     'USER': 'root',
     'PASSWORD': 'root',
     'HOST': 'localhost',
