@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# LOGIN_REDIRECT_URL = 'sensor/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -52,10 +52,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'milkt_api.urls'
 
+# import os
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS' : [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,8 +81,10 @@ DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'sensor_db',
-    'USER': 'admin',
-    'PASSWORD': 'pass123',
+    # 'USER': 'admin',
+    'USER': 'root',
+    # 'PASSWORD': 'pass123',
+    'PASSWORD': 'root',
     'HOST': 'localhost',
     'PORT': '3306',
   }
@@ -126,3 +131,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "sensor/"
+
+LOGIN_URL = 'login'

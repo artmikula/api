@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Sensor Data</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>ID</th>  
+        <th>Sensor Id</th>  
+        <th>Tick</th>  
+        <th>Acc X</th>  
+        <th>Acc Y</th>  
+        <th>Acc Z</th>  
+        <th>Gyro X</th>  
+        <th>Gyro Y</th>  
+        <th>Gyro Z</th>  
+        <th>Temperature</th>  
+        <th>Battery</th>  
+        <th>Received Time</th>  
+        <!-- <th>Deleted?</th>   -->
+        <th>Created Time</th>  
+        <th>Updated Time</th>  
+        <!-- <th>Deleted Time</th>   -->
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for data in sensor_data %}  
+    <tr>  
+        <td>{{ data.id }}</td>  
+        <td>{{ data.sensor_id.uid }}</td>  
+        <td>{{ data.tick }}</td>  
+        <td>{{ data.Acc_X }}</td>  
+        <td>{{ data.Acc_Y }}</td>  
+        <td>{{ data.Acc_Z }}</td>  
+        <td>{{ data.Gyro_X }}</td>  
+        <td>{{ data.Gyro_Y }}</td>  
+        <td>{{ data.Gyro_Z }}</td>  
+        <td>{{ data.temperature }}</td>  
+        <td>{{ data.battery }}</td>  
+        <td>{{ data.rcv_time }}</td>  
+        <!-- <td>{{ data.is_deleted }}</td>   -->
+        <td>{{ data.create_time }}</td>  
+        <td>{{ data.update_time }}</td>  
+        <!-- <td>{{ data.delete_time }}</td>   -->
+        <!-- <td>   -->
+            <!-- <a href="/sensor_data_edit/{{ sensor_data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>   -->
+            <!-- <a href="/delete/{{ employee.id }}">Delete</a>   -->
+        <!-- </td>   -->
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/sensor_data_post" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
