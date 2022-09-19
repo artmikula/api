@@ -4,27 +4,34 @@
 {% block content %}
 
 <body>
-<form method="POST" class="post-form" action="/farm_create/">  
+<form method="POST" class="post-form" action="/user_create/">  
         {% csrf_token %}
     <div class="container">  
   <br>  
   <div class="form-group row">  
     <label class="col-sm-1 col-form-label"></label>  
     <div class="col-sm-4">  
-    <h3>Farms</h3>  
+    <h3>Users</h3>  
     </div>  
-  </div>  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Farm Name:</label>  
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Username:</label>  
     <div class="col-sm-4">  
-      {{ form.farm_name }}
+      {{ form.user_id }}
     </div>
-    <!-- <a href="farm_read.html/">Sensor Site</a> -->
+    <!-- <a href="user_read.html/">Sensor Site</a> -->
+  </div>  
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Password:</label>  
+    <div class="col-sm-4">  
+      {{ form.pw }}
+    </div>
+    <!-- <a href="user_read.html/">Sensor Site</a> -->
   </div>  
   <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">User ID:</label>  
+    <label class="col-sm-2 col-form-label">Permission:</label>  
     <div class="col-sm-4">  
-      {{ form.user_id }}  
+      {{ form.permission }}  
     </div>  
   </div>  
   <div class="form-group row">  

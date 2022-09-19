@@ -1,1 +1,144 @@
- 
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
+<body>
+<form method="POST" class="post-form" action="/command_create/">  
+        {% csrf_token %}
+    <div class="container">  
+  <br>  
+  <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Add Command</h3>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Sensor ID:</label>  
+    <div class="col-sm-4">  
+      {{ form.sensor_id }}  
+    </div>
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Command Type:</label>  
+    <div class="col-sm-4">  
+      {{ form.command_type }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Command:</label>  
+    <div class="col-sm-4">  
+      {{ form.command }}  
+    </div>  
+  </div>  
+
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Triggering Period:</label>  
+    <div class="col-sm-4">  
+      {{ form.trigerring_period }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Active Time:</label>  
+    <div class="col-sm-4">  
+      {{ form.active_time }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Period Time:</label>  
+    <div class="col-sm-4">  
+      {{ form.period_time }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit7:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit7 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit6:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit6 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit5:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit5 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit4:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit4 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit3:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit3 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit2:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit2 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit1:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit1 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">bit0:</label>  
+    <div class="col-sm-4">  
+      {{ form.bit0 }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Data Sending Period:</label>  
+    <div class="col-sm-4">  
+      {{ form.data_sending_period }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Command Status:</label>  
+    <div class="col-sm-4">  
+      {{ form.command_status }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">RCV Code:</label>  
+    <div class="col-sm-4">  
+      {{ form.rcv_code }}  
+    </div>  
+  </div>  
+  
+  <div class="form-group row">  
+    <br>
+    <!-- <label class="col-sm-1 col-form-label">Submit</label>   -->
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+  </div>  
+  </div>  
+</form>
+</body>  
+
+{% endblock %}

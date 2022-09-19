@@ -8,7 +8,7 @@
     <thead class="thead-dark">  
     <tr>
         <th>Cow ID</th>
-        <th>Sensor ID</th>
+        <th>Farm Name</th>
         <th>Created Time</th>
         <th>Updated Time</th>
         <th></th>
@@ -16,17 +16,17 @@
     </tr>  
     </thead>  
     <tbody>  
-{% for data in cow_sensor_data %}  
+{% for data in cow_data %}  
     <tr>  
-        <td>{{ data.cow_id.cow_id }}</td>  
-        <td>{{ data.sensor_id.uid }}</td>  
+        <td>{{ data.cow_id }}</td>
+        <td>{{ data.farm_id.farm_name }}</td>
         <td>{{ data.create_time }}</td>  
         <td>{{ data.update_time }}</td>  
         <td>  
-            <a href="/cow_sensor_update/{{ data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/cow_update/{{ data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
         </td>  
         <td>  
-            <a href="/cow_sensor_delete/{{ data.id }}">Delete</a>  
+            <a href="/cow_delete/{{ data.id }}">Delete</a>  
         </td>  
     </tr>  
 {% endfor %}  
@@ -34,7 +34,7 @@
 </table>  
 <br>  
 <br>  
-<center><a href="/cow_sensor_create" class="btn btn-primary">Add Cow Sensor</a></center>  
+<center><a href="/cow_create" class="btn btn-primary">Add Cow</a></center>  
 </body>  
 
 {% endblock %}

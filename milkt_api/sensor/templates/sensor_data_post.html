@@ -1,11 +1,8 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Milk-T</title>  
-    {% load static %}  
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
-</head>  
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
 <body>  
 <form method="POST" class="post-form" action="/sensor_data_post/">  
         {% csrf_token %}
@@ -87,4 +84,5 @@
   </div>  
 </form>  
 </body>  
-</html>
+
+{% endblock %}

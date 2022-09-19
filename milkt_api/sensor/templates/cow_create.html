@@ -4,26 +4,26 @@
 {% block content %}
 
 <body>  
-<form method="POST" class="post-form" action="/cow_sensor_create/">  
+<form method="POST" class="post-form" action="/cow_create/">  
         {% csrf_token %}
     <div class="container">  
   <br>  
   <div class="form-group row">  
     <label class="col-sm-1 col-form-label"></label>  
     <div class="col-sm-4">  
-    <h3>Add Sensor</h3>  
+    <h3>Add Cow</h3>  
     </div>  
   </div>  
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Cow ID:</label>  
     <div class="col-sm-4">  
-      {{ form.cow_id }}  
+      {{ form.cow_id }} 
     </div>
   </div>  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Sensor ID:</label>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Farm Name:</label>
     <div class="col-sm-4">  
-      {{ form.sensor_id }}
+      {{ form.farm_id }}
     </div>  
   </div>  
   <div class="form-group row">  

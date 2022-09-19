@@ -20,7 +20,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/sensor_data_show">Sensor</a>
+              <a class="nav-link active" aria-current="page" href="/sensor_data_show">Sensor Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sensor_read">Sensors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/cow_sensor_read">Cow Sensors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/cow_read">Cows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/farm_read">Farms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/command_read">Commands</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/user_read">Users</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -30,11 +48,16 @@
         </div>
       </div>
     </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
     <!-- <div class="container my-3">
       <h1 style="text-align:center;">Milk-T</h1>
     </div> -->
 
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-body">
         <h3 style="text-align:center;">Milk-T</h3>
         <br>
@@ -57,7 +80,9 @@
           <br>
         </form>
         <h3 style="text-align:center;">2022</h3>
-      </div>
+      </div> -->
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

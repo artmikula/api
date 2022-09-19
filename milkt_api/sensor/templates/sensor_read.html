@@ -1,11 +1,8 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Sensors</title>  
-     {% load static %}  
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
-</head>  
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
 <body>  
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
@@ -45,4 +42,5 @@
 <br>  
 <center><a href="/sensor_create" class="btn btn-primary">Add Sensor</a></center>  
 </body>  
-</html>
+
+{% endblock %}

@@ -1,11 +1,8 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Farms</title>  
-     {% load static %}  
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
-</head>  
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
 <body>  
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
@@ -36,5 +33,6 @@
 <br>  
 <br>  
 <center><a href="/farm_create" class="btn btn-primary">Add Farm</a></center>  
-</body>  
-</html>
+</body>
+
+{% endblock %}
