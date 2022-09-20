@@ -198,8 +198,8 @@ def user_read(request):
     return render(request,"user_read.html",{'user_data':user_data})  
 
 def user_update(request, id):
-    single_user_data = User.objects.get(id=id)  
-    return render(request,'user_update.html', {'single_user_data':single_user_data})  
+    single_user_data = User.objects.get(id=id)
+    return render(request,'user_update.html', {'single_user_data':single_user_data})
 
 def user_delete(request, id):
     single_user_data = User.objects.get(id=id)

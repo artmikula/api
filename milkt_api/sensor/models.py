@@ -13,6 +13,9 @@ class User(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+  
+  def __str__(self):
+    return self.user_id
 
 class Farm(models.Model):
   farm_name = models.CharField(max_length=30)
@@ -21,6 +24,9 @@ class Farm(models.Model):
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
   user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  
+  def __str__(self):
+    return self.farm_name
 
 class Cow(models.Model):
   cow_id = models.CharField(max_length=255)
@@ -29,6 +35,9 @@ class Cow(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+  
+  def __str__(self):
+    return self.cow_id
 
 class Sensor(models.Model):
   uid = models.CharField(max_length=255)
@@ -40,6 +49,9 @@ class Sensor(models.Model):
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
 
+  def __str__(self):
+    return self.uid
+
 class Cow_Sensor(models.Model):
   cow_id = models.ForeignKey(Cow, on_delete=models.DO_NOTHING)
   sensor_id = models.ForeignKey(Sensor, on_delete=models.DO_NOTHING)
@@ -47,6 +59,9 @@ class Cow_Sensor(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+    
+  def __str__(self):
+    return self.cow_id
 
 class Sensor_Data(models.Model):
   sensor_id = models.ForeignKey(Sensor, on_delete=models.DO_NOTHING)
@@ -64,6 +79,9 @@ class Sensor_Data(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+    
+  def __str__(self):
+    return self.sensor_id
 
 class Command(models.Model):
   COMMAND_STATUS = (
@@ -93,6 +111,10 @@ class Command(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+    
+  def __str__(self):
+    return self.command
+
 
 class Log(models.Model):
   DIV = (
@@ -115,3 +137,7 @@ class Log(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+
+    
+  def __str__(self):
+    return self.logging_msg
