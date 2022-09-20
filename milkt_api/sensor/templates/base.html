@@ -38,11 +38,13 @@
               <a class="nav-link active" aria-current="page" href="/command_read">Commands</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/log_read">Logs</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/user_read">Users</a>
             </li>
           </ul>
           <form class="d-flex">
-            <!-- <input class="form-control me-2" type="search" placeholder="..." aria-label="Search"> -->
             <button class="btn btn-outline-success" type="submit">Refresh</button>
           </form>
         </div>
@@ -52,36 +54,6 @@
     {% block content %}
 
     {% endblock %}
-
-    <!-- <div class="container my-3">
-      <h1 style="text-align:center;">Milk-T</h1>
-    </div> -->
-
-    <!-- <div class="card">
-      <div class="card-body">
-        <h3 style="text-align:center;">Milk-T</h3>
-        <br>
-        <h6>Farm Sensor Data</h6>
-        <br>
-        <form action="/sensor-data/" method="post">
-          <label for="sensor_data">Farm id: </label>
-          <input id="sensor_data" type="text" name="sensor_data" value="{{ current_name }}">
-          <input type="button" value="Submit">
-          <br>
-          <br>
-          <label for="farm_data">Cow id: </label>
-          <input id="farm_data" type="text" name="farm_data" value="{{ current_name }}">
-          <input type="button" value="Submit">
-          <br>
-          <br>
-          <label for="user_data">Sensor id: </label>
-          <input id="user_data" type="text" name="user_data" value="{{ current_name }}">
-          <input type="button" value="Submit">
-          <br>
-        </form>
-        <h3 style="text-align:center;">2022</h3>
-      </div> -->
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 

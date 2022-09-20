@@ -18,11 +18,9 @@
         <th>Gyro Z</th>  
         <th>Temperature</th>  
         <th>Battery</th>  
-        <th>Received Time</th>  
-        <!-- <th>Deleted?</th>   -->
-        <th>Created Time</th>  
-        <th>Updated Time</th>  
-        <!-- <th>Deleted Time</th>   -->
+        <th>Received</th>  
+        <th>Created</th>  
+        <th>Updated</th>  
     </tr>  
     </thead>  
     <tbody>  
@@ -40,21 +38,15 @@
         <td>{{ data.temperature }}</td>  
         <td>{{ data.battery }}</td>  
         <td>{{ data.rcv_time }}</td>  
-        <!-- <td>{{ data.is_deleted }}</td>   -->
         <td>{{ data.create_time }}</td>  
         <td>{{ data.update_time }}</td>  
-        <!-- <td>{{ data.delete_time }}</td>   -->
-        <!-- <td>   -->
-            <!-- <a href="/sensor_data_edit/{{ sensor_data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>   -->
-            <!-- <a href="/delete/{{ employee.id }}">Delete</a>   -->
-        <!-- </td>   -->
     </tr>  
 {% endfor %}  
     </tbody>  
 </table>  
 <br>  
 <br>  
-<center><a href="/sensor_data_post" class="btn btn-primary">Add New Record</a></center>  
+<!-- <center><a href="/sensor_data_post" class="btn btn-primary">Add New Record</a></center>   -->
 </body>
 
 {% endblock %}

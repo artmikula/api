@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,12 +51,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'milkt_api.urls'
 
-# import os
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR,'templates')],
         'DIRS' : [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -132,6 +128,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "sensor/"
+LOGIN_REDIRECT_URL = "sensor_data_show/"
 
 LOGIN_URL = 'login'

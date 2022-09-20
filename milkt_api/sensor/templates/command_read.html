@@ -8,11 +8,11 @@
     <thead class="thead-dark">  
     <tr>
         <th>Sensor ID</th>
-        <th>Command Type</th>
         <th>Command</th>
+        <th>Type</th>
         <th>Triggering Period</th>
         <th>Active Time</th>
-        <th>Period Time</th>
+        <th>Period</th>
         <th>bit7</th>
         <th>bit6</th>
         <th>bit5</th>
@@ -24,16 +24,18 @@
         <th>Data Sending Period</th>
         <th>Command Status</th>
         <th>RCV Code</th>
-        <th>Created Time</th>
-        <th>Updated Time</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th></th>
+        <th></th>
     </tr>  
     </thead>  
     <tbody>  
 {% for data in command_data %}  
     <tr>  
         <td>{{ data.sensor_id.uid }}</td>  
-        <td>{{ data.command_type }}</td>  
         <td>{{ data.command }}</td>  
+        <td>{{ data.command_type }}</td>  
         <td>{{ data.trigerring_period }}</td>  
         <td>{{ data.active_time }}</td>  
         <td>{{ data.period_time }}</td>  
