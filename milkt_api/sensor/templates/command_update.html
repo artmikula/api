@@ -1,164 +1,20 @@
 {% extends 'base.html' %}
-{% load static %}  
+{% load static %}
 
 {% block content %}
 
-<body>  
-<form method="POST" class="post-form" action="/command_read/">  
-        {% csrf_token %}  
-    <div class="container">  
-<br>  
-    <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <h3>Update Commands:</h3>  
-    </div>
-  </div>
-  <br>
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Sensor ID:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="sensor_id" id="id_sensor_id" required maxlength="20" value="{{ single_command_data.sensor_id.uid }}"/>
-    </div>  
-  </div>
+<body>
 
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Command Type:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="command_type" id="id_command_type" required maxlength="20" value="{{ single_command_data.command_type }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Command:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="command" id="id_command" required maxlength="20" value="{{ single_command_data.command }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Triggering Period:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="trigerring_period" id="trigerring_period" required maxlength="20" value="{{ single_command_data.trigerring_period }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Active Time:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="active_time" id="id_active_time" required maxlength="20" value="{{ single_command_data.active_time }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Period:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="period_time" id="id_period_time" required maxlength="20" value="{{ single_command_data.period_time }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit7:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit7" id="id_bit7" required maxlength="20" value="{{ single_command_data.bit7 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit6:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit6" id="id_bit6" required maxlength="20" value="{{ single_command_data.bit6 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit5:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit5" id="id_bit5" required maxlength="20" value="{{ single_command_data.bit5 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit4:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit4" id="id_bit4" required maxlength="20" value="{{ single_command_data.bit4 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit3:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit3" id="id_bit3" required maxlength="20" value="{{ single_command_data.bit3 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit2:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit2" id="id_bit2" required maxlength="20" value="{{ single_command_data.bit2 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit1:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit1" id="id_bit1" required maxlength="20" value="{{ single_command_data.bit1 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">bit0:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="bit0" id="id_bit0" required maxlength="20" value="{{ single_command_data.bit0 }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Data Sending Period:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="data_sending_period" id="data_sending_period" required maxlength="20" value="{{ single_command_data.data_sending_period }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Command Status:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="command_status" id="id_command_status" required maxlength="20" value="{{ single_command_data.command_status }}"/>  
-    </div>  
-  </div>
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">RCV Code:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="rcv_code" id="id_rcv_code" required maxlength="20" value="{{ single_command_data.rcv_code }}"/>  
-    </div>  
-  </div>
-  
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Created:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="create_time" id="id_create_time" required maxlength="20" value="{{ single_command_data.create_time }}"/>  
-    </div>  
-  </div>
-  
-  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Updated:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="update_time" id="id_update_time" required maxlength="20" value="{{ single_command_data.update_time }}"/>  
-    </div>  
-  </div>
-  
-  <br>
-  <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <button type="submit" class="btn btn-success">Update</button>  
-    </div>  
-  </div>  
-  </div>  
-</form>
+  <h1>Update Command</h1>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+ </form>
+
+
+
 </body>  
 
 {% endblock %}

@@ -23,10 +23,11 @@ class Farm(models.Model):
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
-  user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
   
   def __str__(self):
     return self.farm_name
+    # return u'{0}'.format(self.farm_name)
 
 class Cow(models.Model):
   cow_id = models.CharField(max_length=255)

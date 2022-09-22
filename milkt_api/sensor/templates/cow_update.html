@@ -1,42 +1,20 @@
- 
 {% extends 'base.html' %}
-{% load static %}  
+{% load static %}
 
 {% block content %}
 
-<body>  
-<form method="POST" class="post-form" action="/cow_read/">  
-        {% csrf_token %}  
-    <div class="container">  
-<br>
-    <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <h3>Update Cow Information</h3>  
-    </div>
-  </div>  
-  <br>
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Cow ID:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="cow_id" id="id_cow_id" required maxlength="20" value="{{ single_cow_data.cow_id }}"/>  
-    </div>  
-  </div>  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Farm Name:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="farm_id" id="id_farm_id" required maxlength="20" value="{{ single_cow_data.farm_id.farm_id }}"/>  
-    </div>  
-  </div>
-  <br>
-  <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <button type="submit" class="btn btn-success">Update</button>  
-    </div>  
-  </div>  
-  </div>  
-</form>  
+<body>
+
+  <h1>Update Cow</h1>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+ </form>
+
+
+
 </body>  
 
 {% endblock %}
