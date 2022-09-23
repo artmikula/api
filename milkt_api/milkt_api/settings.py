@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sensor',
-    'crispy_forms',
+    # 'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +78,9 @@ DATABASES = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'sensor_db',
     # 'USER': 'admin',
-    'USER': 'root',
+    'USER': 'admin',
     # 'PASSWORD': 'pass123',
-    'PASSWORD': 'root',
+    'PASSWORD': 'root1234!',
     'HOST': 'localhost',
     'PORT': '3306',
   }

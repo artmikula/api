@@ -4,14 +4,15 @@ services:
   db:
     image: mariadb:latest
     restart: always
-    # volumes:
-    # - ~/apps/sensor_db:/var/lib/mysql
-    # - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
+    volumes:
+      - ./data/db:/var/lib/mariadb/data
+      # - ~/apps/sensor_db:/var/lib/mysql
+      # - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
     environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=pass123
       - MYSQL_DATABASE=sensor_db
-      - MYSQL_ROOT_PASSWORD=pswd
+      - MYSQL_ROOT_PASSWORD=root1234!
       - TZ="Asia/Seoul"
 
   web:
@@ -25,7 +26,7 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=pass123
       - MYSQL_DATABASE=sensor_db
-      - MYSQL_ROOT_PASSWORD=pswd
+      - MYSQL_ROOT_PASSWORD=root1234!
       - TZ="Asia/Seoul"
     depends_on:
       - db
