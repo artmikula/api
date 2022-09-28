@@ -9,8 +9,8 @@ services:
       - MYSQL_PASSWORD=pass123
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=sensor_db
-  ports:
-    - "63306:3306"
+    ports:
+      - "63306:3306"
 
   django:
     image: django-docker:0.0.1
