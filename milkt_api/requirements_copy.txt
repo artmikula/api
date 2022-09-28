@@ -1,0 +1,8 @@
+Django
+django-crispy-forms==1.14.0
+djangorestframework==3.13.1
+django-environ
+mysqlclient
+django-mysql
+# mysqlclient==2.1.1
+# mysql-python

@@ -1,15 +1,26 @@
-# EXPOSE 8000
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# FROM python:3
+# ENV PYTHONDONTWRITEBYTECODE=1
+# ENV PYTHONUNBUFFERED=1
+# RUN mkdir /code
+# WORKDIR /code
+# COPY requirements.txt /code/
+# RUN pip install -r requirements.txt
+# COPY . /code/
 
-FROM python:3
+FROM python:3.10
 
-RUN python3 -m venv /opt/venv
-
-ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+
 WORKDIR /code
 
-COPY requirements.txt /code/
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
-COPY . /code/
+
+COPY . .
+
+EXPOSE 8100
+
+CMD ["python","manage.py","runserver"]
+
+# RUN python manage.py runserver 0.0.0.0:8100
