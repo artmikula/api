@@ -16,6 +16,6 @@ services:
     image: django-docker:0.0.1
     build: .
     ports:
-      - "68100:8000"
+      - "8100:8000"
     depends_on:
       - db
