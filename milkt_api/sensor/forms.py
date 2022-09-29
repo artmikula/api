@@ -30,7 +30,7 @@ class CowForm(forms.ModelForm):
     farm_id = forms.ModelChoiceField(queryset=Farm.objects.all(), initial=0)
     class Meta:
         model = Cow
-        fields = ["cow_id", "farm_id"]
+        fields = "__all__"
 
 class Cow_SensorForm(forms.ModelForm):
     class Meta:
