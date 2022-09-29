@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import environ
-
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,17 +73,29 @@ WSGI_APPLICATION = 'milkt_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': env('MYSQL_DATABASE'),
+#     'USER': env('MYSQL_USER'),
+#     'PASSWORD': env('MYSQL_PASSWORD'),
+#     'HOST': env('MYSQL_DATABASE_HOST'),
+#     'PORT': env('MYSQL_DATABASE_PORT'),
+#   }
+# }
+
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': env('MYSQL_DATABASE'),
-    'USER': env('MYSQL_USER'),
-    'PASSWORD': env('MYSQL_PASSWORD'),
-    'HOST': env('MYSQL_DATABASE_HOST'),
-    'PORT': env('MYSQL_DATABASE_PORT'),
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sensor_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'milkt_api_db_1',
+        'PORT': '3306',
+    }
 }
 
+ALLOWED_HOSTS = ['*']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
