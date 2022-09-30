@@ -3,36 +3,26 @@ version: "3.9"
 services:
 
   db:
-    # image: mariadb:latest
-    # restart: on-failure
-    # volumes:
-    #   - ./data/db:/var/lib/mariadb/data
-    # environment:
-    #   - MARIADB_DATABASE=sensor_db
-    #   - MARIADB_USER=admin
-    #   - MARIADB_PASSWORD=pass123
-    #   - MARIADB_ROOT_PASSWORD=root
-
     image: mariadb
+    container_name: milkt_sensor_db
     environment:
-      MYSQL_DATABASE: 'django-app-db'
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'sensor_db'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'pass123'
     volumes:
       - ./data/mysql/db:/var/lib/mysql
+    ports:
+      - "3310:3306"
 
   web:
-
     image: app:django
-    container_name: django_container
+    container_name: milkt_sensor_web
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-    # environment:
-    #   - MARIADB_DATABASE=sensor_db
-    #   - MARIADB_USER=root
-    #   - MARIADB_PASSWORD=root
     depends_on:
       - db

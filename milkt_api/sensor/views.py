@@ -13,14 +13,13 @@ def sensor_data_post(request):
                 form.save() 
                 return redirect('/sensor_data_show')
             except:
-                print("nono")
                 pass 
     else:  
         form = Sensor_DataForm()
     return render(request,'sensor_data_post.html',{'form':form})
 
 
-def sensor_data_show(request):  
+def sensor_data_show(request):
     sensor_data = Sensor_Data.objects.filter(is_deleted=0)
     return render(request,"sensor_data_show.html",{'sensor_data':sensor_data})  
 

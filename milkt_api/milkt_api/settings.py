@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -23,11 +22,9 @@ SECRET_KEY = 'django-insecure-r0v3(yllzcr2t#p-h@8h&u+8urr46n(hqi(u+t0xt$nzhk4n8j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,8 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sensor',
     'crispy_forms',
+    'sensor',
 ]
 
 MIDDLEWARE = [
@@ -73,24 +70,13 @@ WSGI_APPLICATION = 'milkt_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#   'default': {
-#     'ENGINE': 'django.db.backends.mysql',
-#     'NAME': env('MYSQL_DATABASE'),
-#     'USER': env('MYSQL_USER'),
-#     'PASSWORD': env('MYSQL_PASSWORD'),
-#     'HOST': env('MYSQL_DATABASE_HOST'),
-#     'PORT': env('MYSQL_DATABASE_PORT'),
-#   }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sensor_db',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'milkt_api_db_1',
+        'USER': 'admin',
+        'PASSWORD': 'pass123',
+        # 'HOST': 'milkt_sensor_db',
         'PORT': '3306',
     }
 }
@@ -106,12 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
