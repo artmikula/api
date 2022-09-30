@@ -4,7 +4,7 @@ services:
 
   db:
     image: mariadb
-    container_name: milkt_sensor_db
+    container_name: milkt_sensor_mariadb
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_DATABASE: 'sensor_db'
@@ -23,6 +23,6 @@ services:
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8010:8000"
     depends_on:
       - db

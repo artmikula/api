@@ -76,8 +76,8 @@ DATABASES = {
         'NAME': 'sensor_db',
         'USER': 'admin',
         'PASSWORD': 'pass123',
-        # 'HOST': 'milkt_sensor_db',
-        'PORT': '3306',
+        'HOST': 'milkt_sensor_mariadb',
+        'PORT': '3310',
     }
 }
 
