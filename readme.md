@@ -1,12 +1,13 @@
-1. activate the virtual environment
-    \.venv\bin\activate
+docker-compose build 
+docker-compose up -d
 
-2. in milkt_api:
-    python manage.py migrate
-    python manage.py runserver
-
+    web:
     user: admin11
     pswd: think1234!
-
-
+    
+    db:
+    port 3310
+    root password: root
+    user: admin
+    password: pass123
 
