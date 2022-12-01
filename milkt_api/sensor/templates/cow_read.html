@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>
+        <th>Cow ID</th>
+        <th>Farm Name</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th></th>
+        <th></th>
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for data in cow_data %}  
+    <tr>  
+        <td>{{ data.cow_id }}</td>
+        <td>{{ data.farm_id.farm_name }}</td>
+        <td>{{ data.create_time }}</td>  
+        <td>{{ data.update_time }}</td>  
+        <td>  
+            <a href="/cow_update/{{ data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+        </td>  
+        <td>  
+            <a href="/cow_delete/{{ data.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/cow_create" class="btn btn-primary">Add Cow</a></center>  
+</body>  
+
+{% endblock %}

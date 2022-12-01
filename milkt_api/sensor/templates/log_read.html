@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>
+        <th>Div</th>
+        <th>Command ID</th>
+        <th>Sensor UID</th>
+        <th>Sensor Data ID</th>
+        <th>Logging Type</th>
+        <th>Response Code</th>
+        <th>Logging Message</th>
+        <th>Created</th>
+        <th>Updated</th>
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for data in log_data %}  
+    <tr>  
+        <td>{{ data.div }}</td>  
+        <td>{{ data.command_id.id }}</td>  
+        <td>{{ data.sensor_uid.uid }}</td>  
+        <td>{{ data.sensor_data_id.id }}</td>  
+        <td>{{ data.logging_type }}</td>  
+        <td>{{ data.response_code }}</td>  
+        <td>{{ data.logging_msg }}</td>  
+        <td>{{ data.update_time }}</td>  
+        <td>{{ data.update_time }}</td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+</body>  
+
+{% endblock %}

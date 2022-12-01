@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block content %}
+
+<body>  
+<form method="POST" class="post-form" action="/sensor_create/">  
+        {% csrf_token %}
+    <div class="container">  
+  <br>  
+  <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Sensors</h3>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Sensor Uid:</label>  
+    <div class="col-sm-4">  
+      {{ form.uid }}  
+    </div>
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Owner:</label>
+    <div class="col-sm-4">  
+      {{ form.owner }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">IP Address:</label>  
+    <div class="col-sm-4">  
+      {{ form.ip_addr }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Port Number:</label>  
+    <div class="col-sm-4">  
+      {{ form.port }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <br>
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+  </div>  
+  </div>  
+</form>  
+</body>  
+
+{% endblock %}

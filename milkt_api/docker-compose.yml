@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: mariadb
+    container_name: milkt_sensor_mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'sensor_db'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'pass123'
+    volumes:
+      - ./data/mysql/db:/var/lib/mysql
+    ports:
+      - "3310:3306"
+
+  web:
+    image: app:django
+    container_name: milkt_sensor_web
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8010:8000"
+    depends_on:
+      - db
