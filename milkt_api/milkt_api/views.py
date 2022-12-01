@@ -10,7 +10,7 @@ def register_request(request):
       user = form.save()
       # login(request, user)
       messages.success(request, "Registration successful." )
-      return redirect("/sensor_data_show")
+      return redirect("/")
     messages.error(request, "Unsuccessful registration. Invalid information.")
   form = NewUserForm()
   return render (request=request, template_name="register.html", context={"register_form":form})

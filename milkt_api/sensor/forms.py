@@ -46,3 +46,6 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = "__all__"
+        widgets = {
+        'hash': forms.PasswordInput(),
+        }
