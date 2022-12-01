@@ -1,5 +1,6 @@
 from pickle import FALSE
 from django.db import models
+import hashlib
 
 class User(models.Model):
   PERMISSIONS = (
@@ -7,12 +8,18 @@ class User(models.Model):
     (1, 'user'),
   )
   user_id = models.CharField(max_length=64)
-  pw = models.CharField(max_length=255)
+  pw = models.CharField(max_length=255, null=True, blank=True)
   permission = models.IntegerField(choices=PERMISSIONS)
   is_deleted = models.BooleanField(default=FALSE)
   create_time = models.DateTimeField(auto_now=True)
   update_time = models.DateTimeField(auto_now=True)
   delete_time = models.DateTimeField(auto_now=True)
+  hash = models.CharField(max_length=255, null=True, blank=True)
+  
+  def save(self, *args, **kwargs):
+    result = hashlib.sha256(self.hash.encode())
+    self.pw = result.hexdigest()
+    super(User, self).save(*args, **kwargs)
   
   def __str__(self):
     return self.user_id
